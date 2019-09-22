@@ -1,6 +1,7 @@
 # Laravel Master-Detail Form Example with jQuery
 
 Simple demo-project to add products with order, within the same form.
+
 This project was created for this article: [Master-Detail Form in Laravel + jQuery: Create Order With Products](https://quickadminpanel.com/blog/master-detail-form-in-laravel-jquery-create-order-with-products/)
 
 ![Laravel master-detail form](https://quickadminpanel.com/blog/wp-content/uploads/2019/09/Screen-Shot-2019-09-22-at-11.51.12-AM-1024x546.png)
@@ -10,7 +11,7 @@ This project was created for this article: [Master-Detail Form in Laravel + jQue
 
 ---
 
-System is partly generated with [QuickAdminPanel](https://2019.quickadminpanel.com), on [CoreUI Free theme](https://coreui.io/demo/#main.html) (Bootstrap 4) with form customization afterwards.
+System is partly generated with [QuickAdminPanel](https://2019.quickadminpanel.com), based on Laravel 6 and [CoreUI Free theme](https://coreui.io/demo/#main.html) (Bootstrap 4) with form customization afterwards.
 
 ---
 

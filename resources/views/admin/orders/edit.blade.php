@@ -48,25 +48,25 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach ($order->products as $order_product)
+                        @foreach (old('products', $order->products->count() ? $order->products : ['']) as $order_product)
                             <tr id="product{{ $loop->index }}">
                                 <td>
                                     <select name="products[]" class="form-control">
                                         <option value="">-- choose product --</option>
                                         @foreach ($products as $product)
                                             <option value="{{ $product->id }}"
-                                                @if ($order_product->id == $product->id) selected @endif
+                                                @if (old('products.' . $loop->parent->index, optional($order_product)->id) == $product->id) selected @endif
                                             >{{ $product->name }} (${{ number_format($product->price, 2) }})</option>
                                         @endforeach
                                     </select>
                                 </td>
                                 <td>
                                     <input type="number" name="quantities[]" class="form-control"
-                                           value="{{ $order_product->pivot->quantity }}" />
+                                           value="{{ (old('quantities.' . $loop->index) ?? optional(optional($order_product)->pivot)->quantity) ?? '1' }}" />
                                 </td>
                             </tr>
                         @endforeach
-                        <tr id="product{{ $order->products->count() }}"></tr>
+                        <tr id="product{{ count(old('products', $order->products->count() ? $order->products : [''])) }}"></tr>
                         </tbody>
                     </table>
 
@@ -91,7 +91,7 @@
 @section('scripts')
     <script>
       $(document).ready(function(){
-        let row_number = {{ $order->products->count() }};
+        let row_number = {{ count(old('products', $order->products->count() ? $order->products : [''])) }};
         $("#add_row").click(function(e){
           e.preventDefault();
           let new_row_number = row_number - 1;
